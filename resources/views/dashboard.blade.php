@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard | Sistem Master Data</title>
+    <title>Dashboard | TOKO CERIA</title>
 
     <style>
         * {
@@ -347,9 +347,9 @@
 <div class="layout">
 
     <aside class="sidebar">
-        <div class="brand">MasterData</div>
+        <div class="brand">TOKO CERIA</div>
         <div class="brand-subtitle">
-            Sistem Informasi<br>Pengelolaan Data
+            Sistem Informasi<br>Pengelolaan Toko
         </div>
 
         <nav>
@@ -386,11 +386,17 @@
                 <span class="nav-icon">▦</span>
                 Vendor
             </a>
+
+            <a href="{{ route('margin_penjualan.index') }}" class="nav-link">
+                <span class="nav-icon">％</span>
+                Margin Penjualan
+            </a>
+
         </nav>
 
         <div class="sidebar-footer">
-            <strong>MasterData System</strong><br>
-            Pengelolaan master data
+            <strong>TOKO CERIA</strong><br>
+            Sistem Pengelolaan Toko
         </div>
     </aside>
 
@@ -412,14 +418,14 @@
         </header>
 
         <section class="welcome">
-            <h2>Selamat Datang di Dashboard! 👋</h2>
+            <h2>Selamat Datang di TOKO CERIA!</h2>
             <p>
-                Kelola seluruh master data dalam satu tempat.
-                Pilih menu yang ingin kamu buka untuk melihat,
-                menambahkan, mengubah, atau menghapus data.
+                Selamat datang di sistem pengelolaan TOKO CERIA.
+                Kelola data pengguna, barang, satuan, vendor,
+                dan role dalam satu tempat dengan mudah dan praktis.
             </p>
             <span class="welcome-tag">
-                ✦ Sistem Pengelolaan Master Data
+                ✦ Sistem Informasi Pengelolaan Toko
             </span>
         </section>
 
@@ -430,7 +436,7 @@
                     <p>Pilih salah satu menu untuk mulai mengelola data.</p>
                 </div>
 
-                <span class="menu-count">5 menu tersedia</span>
+                <span class="menu-count">6 menu tersedia</span>
             </div>
 
             <div class="card-grid">
@@ -495,11 +501,24 @@
                     </div>
                 </a>
 
+
+                <a href="{{ route('margin_penjualan.index') }}" class="menu-card">
+                    <div class="card-icon">％</div>
+                    <h3>Margin Penjualan</h3>
+                    <p>
+                        Kelola persentase margin penjualan
+                        beserta status dan informasi pembuatnya.
+                    </p>
+                    <div class="card-link">
+                        Kelola Margin <span>→</span>
+                    </div>
+                </a>
+
             </div>
         </section>
 
         <footer class="footer">
-            © {{ date('Y') }} MasterData System. All rights reserved.
+            © {{ date('Y') }} TOKO CERIA. All rights reserved.
         </footer>
 
     </main>

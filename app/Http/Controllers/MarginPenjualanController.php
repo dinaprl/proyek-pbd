@@ -8,22 +8,16 @@ use Illuminate\Support\Carbon;
 
 class MarginPenjualanController extends Controller
 {
+
     public function index()
     {
-        $margins = DB::table('view_master_margin')
-            ->select([
-                'idmargin_penjualan',
-                'persen',
-                'status_deskripsi',
-                'dibuat_oleh',
-                'created_at',
-                'updated_at',
-            ])
-            ->orderBy('idmargin_penjualan')
-            ->get();
+    // Memanggil Stored Procedure dari database MySQL
+        $margins = DB::select('CALL sp_tampil_margin_penjualan()');
 
+    // Mengirim hasil SP ke halaman daftar margin
         return view('margin_penjualan.index', compact('margins'));
     }
+
 
     public function create()
     {

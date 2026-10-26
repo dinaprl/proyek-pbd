@@ -8,24 +8,13 @@ use Illuminate\Validation\Rule;
 
 class BarangController extends Controller
 {
-    /**
-     * Menampilkan seluruh data barang
-     * Menggunakan VIEW MySQL: view_master_barang
-     */
+
     public function index()
     {
-        $barangs = DB::table('view_master_barang')
-            ->select([
-                'idbarang',
-                'jenis_barang as jenis',
-                'nama_barang as nama',
-                'nama_satuan',
-                'harga',
-                'status_barang as status',
-            ])
-            ->orderBy('idbarang')
-            ->get();
+    // Memanggil Stored Procedure dari database MySQL
+        $barangs = DB::select('CALL sp_tampil_barang_aktif()');
 
+    // Mengirim hasil SP ke halaman daftar barang
         return view('barang.index', compact('barangs'));
     }
 
