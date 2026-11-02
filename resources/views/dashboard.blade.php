@@ -265,6 +265,7 @@
             text-align: center;
         }
 
+        /* Tablet */
         @media (max-width: 1100px) {
             .card-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -279,6 +280,7 @@
             }
         }
 
+        /* Mobile */
         @media (max-width: 700px) {
             .layout {
                 flex-direction: column;
@@ -346,10 +348,14 @@
 <body>
 <div class="layout">
 
+    <!-- SIDEBAR -->
     <aside class="sidebar">
+
         <div class="brand">TOKO CERIA</div>
+
         <div class="brand-subtitle">
-            Sistem Informasi<br>Pengelolaan Toko
+            Sistem Informasi<br>
+            Pengelolaan Toko
         </div>
 
         <nav>
@@ -392,17 +398,34 @@
                 Margin Penjualan
             </a>
 
+            <div class="menu-label" style="grid-column:1/-1">
+                TRANSAKSI
+            </div>
+
+            <a href="{{ route('pengadaan.index') }}" class="nav-link">
+                <span class="nav-icon">🛒</span>
+                Pengadaan
+            </a>
+
+            <a href="{{ route('penerimaan.index') }}" class="nav-link">
+                <span class="nav-icon">📥</span>
+                Penerimaan
+            </a>
         </nav>
 
         <div class="sidebar-footer">
             <strong>TOKO CERIA</strong><br>
             Sistem Pengelolaan Toko
         </div>
+
     </aside>
 
+    <!-- MAIN CONTENT -->
     <main class="main">
 
+        <!-- TOPBAR -->
         <header class="topbar">
+
             <div>
                 <div class="breadcrumb">Beranda / Dashboard</div>
                 <h1 class="page-title">Dashboard</h1>
@@ -410,113 +433,202 @@
 
             <div class="admin-badge">
                 <span class="admin-circle">A</span>
+
                 <span>
                     <strong>Administrator</strong><br>
-                    <small style="color:#64748b">Panel Pengelolaan</small>
+                    <small style="color:#64748b">
+                        Panel Pengelolaan
+                    </small>
                 </span>
             </div>
+
         </header>
 
+        <!-- WELCOME BANNER -->
         <section class="welcome">
+
             <h2>Selamat Datang di TOKO CERIA!</h2>
+
             <p>
                 Selamat datang di sistem pengelolaan TOKO CERIA.
-                Kelola data pengguna, barang, satuan, vendor,
-                dan role dalam satu tempat dengan mudah dan praktis.
+                Kelola master data serta transaksi pengadaan dan
+                penerimaan barang dalam satu tempat dengan mudah
+                dan praktis.
             </p>
+
             <span class="welcome-tag">
                 ✦ Sistem Informasi Pengelolaan Toko
             </span>
+
         </section>
 
+        <!-- MENU MASTER DATA -->
         <section>
+
             <div class="section-heading">
+
                 <div>
                     <h2>Menu Master Data</h2>
-                    <p>Pilih salah satu menu untuk mulai mengelola data.</p>
+                    <p>
+                        Pilih salah satu menu untuk mulai mengelola data.
+                    </p>
                 </div>
 
-                <span class="menu-count">6 menu tersedia</span>
+                <span class="menu-count">8 menu tersedia</span>
+
             </div>
 
             <div class="card-grid">
 
+                <!-- USER -->
                 <a href="{{ route('user.index') }}" class="menu-card">
+
                     <div class="card-icon">👤</div>
+
                     <h3>Master User</h3>
+
                     <p>
                         Kelola akun pengguna dan tentukan role
                         untuk setiap user.
                     </p>
+
                     <div class="card-link">
                         Kelola User <span>→</span>
                     </div>
+
                 </a>
 
+                <!-- ROLE -->
                 <a href="{{ route('role.index') }}" class="menu-card">
+
                     <div class="card-icon">🔐</div>
+
                     <h3>Master Role</h3>
+
                     <p>
                         Kelola daftar role atau peran pengguna
                         dalam sistem.
                     </p>
+
                     <div class="card-link">
                         Kelola Role <span>→</span>
                     </div>
+
                 </a>
 
+                <!-- BARANG -->
                 <a href="{{ route('barang.index') }}" class="menu-card">
+
                     <div class="card-icon">📦</div>
+
                     <h3>Master Barang</h3>
+
                     <p>
                         Kelola informasi barang, harga, jenis,
                         dan satuan barang.
                     </p>
+
                     <div class="card-link">
                         Kelola Barang <span>→</span>
                     </div>
+
                 </a>
 
+                <!-- SATUAN -->
                 <a href="{{ route('satuan.index') }}" class="menu-card">
+
                     <div class="card-icon">📏</div>
+
                     <h3>Master Satuan</h3>
+
                     <p>
                         Kelola satuan pengukuran seperti Pcs,
                         Box, Rim, Botol, dan Pack.
                     </p>
+
                     <div class="card-link">
                         Kelola Satuan <span>→</span>
                     </div>
+
                 </a>
 
+                <!-- VENDOR -->
                 <a href="{{ route('vendor.index') }}" class="menu-card">
+
                     <div class="card-icon">🏢</div>
+
                     <h3>Master Vendor</h3>
+
                     <p>
                         Kelola nama vendor, badan hukum,
                         dan status vendor.
                     </p>
+
                     <div class="card-link">
                         Kelola Vendor <span>→</span>
                     </div>
+
                 </a>
 
+                <!-- MARGIN PENJUALAN -->
+                <a href="{{ route('margin_penjualan.index') }}"
+                   class="menu-card">
 
-                <a href="{{ route('margin_penjualan.index') }}" class="menu-card">
                     <div class="card-icon">％</div>
+
                     <h3>Margin Penjualan</h3>
+
                     <p>
                         Kelola persentase margin penjualan
                         beserta status dan informasi pembuatnya.
                     </p>
+
                     <div class="card-link">
                         Kelola Margin <span>→</span>
                     </div>
+
+                </a>
+
+                <!-- PENGADAAN -->
+                <a href="{{ route('pengadaan.index') }}" class="menu-card">
+
+                    <div class="card-icon">🛒</div>
+
+                    <h3>Pengadaan</h3>
+
+                    <p>
+                        Kelola transaksi pengadaan barang dari vendor,
+                        termasuk jumlah barang dan nilai pembelian.
+                    </p>
+
+                    <div class="card-link">
+                        Kelola Pengadaan <span>→</span>
+                    </div>
+
+                </a>
+
+                <!-- PENERIMAAN -->
+                <a href="{{ route('penerimaan.index') }}" class="menu-card">
+
+                    <div class="card-icon">📥</div>
+
+                    <h3>Penerimaan</h3>
+
+                    <p>
+                        Catat barang yang diterima dari pengadaan
+                        dan perbarui kartu stok melalui trigger database.
+                    </p>
+
+                    <div class="card-link">
+                        Kelola Penerimaan <span>→</span>
+                    </div>
+
                 </a>
 
             </div>
         </section>
 
+        <!-- FOOTER -->
         <footer class="footer">
             © {{ date('Y') }} TOKO CERIA. All rights reserved.
         </footer>

@@ -8,6 +8,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PengadaanController;
+use App\Http\Controllers\PenerimaanController;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -128,3 +130,40 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
 
 Route::get('/', [DashboardController::class, 'index']);
+
+// Transaksi Pengadaan
+// CRUD Pengadaan
+Route::get('/pengadaan', [PengadaanController::class, 'index'])
+    ->name('pengadaan.index');
+
+Route::get('/pengadaan/create', [PengadaanController::class, 'create'])
+    ->name('pengadaan.create');
+
+Route::post('/pengadaan', [PengadaanController::class, 'store'])
+    ->name('pengadaan.store');
+
+Route::get('/pengadaan/{id}/edit', [PengadaanController::class, 'edit'])
+    ->name('pengadaan.edit');
+
+Route::put('/pengadaan/{id}', [PengadaanController::class, 'update'])
+    ->name('pengadaan.update');
+
+Route::delete('/pengadaan/{id}', [PengadaanController::class, 'destroy'])
+    ->name('pengadaan.destroy');
+
+
+// Transaksi Penerimaan
+Route::get('/penerimaan', [PenerimaanController::class, 'index'])
+    ->name('penerimaan.index');
+
+Route::get('/penerimaan/create', [PenerimaanController::class, 'create'])
+    ->name('penerimaan.create');
+
+Route::post('/penerimaan', [PenerimaanController::class, 'store'])
+    ->name('penerimaan.store');
+    
+Route::get('/penerimaan/{id}/edit', [PenerimaanController::class, 'edit'])
+    ->name('penerimaan.edit');
+
+Route::put('/penerimaan/{id}', [PenerimaanController::class, 'update'])
+    ->name('penerimaan.update');
